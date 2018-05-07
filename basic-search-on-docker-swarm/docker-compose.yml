@@ -2,7 +2,7 @@
 version: '3'
 services:
   cfg1:
-    image: vespaengine/vespa
+    image: vespaengine/vespa:6.229.8
     entrypoint: /bin/bash
     command: "-c \"sed -i '/isthisaconfigserver/d' /opt/vespa/libexec/vespa/start-configserver && /usr/local/bin/start-container.sh configserver\""
     hostname: "{{.Service.Name}}.{{.Task.Slot}}.{{.Task.ID}}.vespa_net"
@@ -19,7 +19,7 @@ services:
        - logs:/opt/vespa/logs
 
   cfg2:
-    image: vespaengine/vespa
+    image: vespaengine/vespa:6.229.8
     entrypoint: /bin/bash
     command: "-c \"sed -i '/isthisaconfigserver/d' /opt/vespa/libexec/vespa/start-configserver && /usr/local/bin/start-container.sh configserver\""
     hostname: "{{.Service.Name}}.{{.Task.Slot}}.{{.Task.ID}}.vespa_net"
@@ -34,7 +34,7 @@ services:
        - logs:/opt/vespa/logs
 
   cfg3:
-    image: vespaengine/vespa
+    image: vespaengine/vespa:6.229.8
     entrypoint: /bin/bash
     command: "-c \"sed -i '/isthisaconfigserver/d' /opt/vespa/libexec/vespa/start-configserver && /usr/local/bin/start-container.sh configserver\""
     hostname: "{{.Service.Name}}.{{.Task.Slot}}.{{.Task.ID}}.vespa_net"
@@ -49,7 +49,7 @@ services:
        - logs:/opt/vespa/logs
 
   container:
-    image: vespaengine/vespa
+    image: vespaengine/vespa:6.229.8
     command: services
     hostname: "{{.Service.Name}}.{{.Task.Slot}}.{{.Task.ID}}.vespa_net"
     environment:
@@ -66,7 +66,7 @@ services:
        - logs:/opt/vespa/logs
 
   content:
-    image: vespaengine/vespa
+    image: vespaengine/vespa:6.229.8
     command: services
     hostname: "{{.Service.Name}}.{{.Task.Slot}}.{{.Task.ID}}.vespa_net"
     environment:
