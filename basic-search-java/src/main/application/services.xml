@@ -17,18 +17,25 @@
                 </searcher>
             </chain>
         </search>
+        <document-processing>
+            <chain id="default">
+                <documentprocessor id="com.mydomain.example.Rot13DocumentProcessor" bundle="basic-search-java"/>
+            </chain>
+        </document-processing>
         <nodes>
-            <node hostalias="node1"/>
+            <jvm options="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005"/>
+            <node hostalias="node1">
+            </node>
         </nodes>
     </container>
 
     <content id="music" version="1.0">
         <redundancy>1</redundancy>
         <documents>
-            <document type="music" mode="index" />
+            <document type="music" mode="index"/>
         </documents>
         <nodes>
-            <node hostalias="node1" distribution-key="0" />
+            <node hostalias="node1" distribution-key="0"/>
         </nodes>
     </content>
 
