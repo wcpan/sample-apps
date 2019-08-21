@@ -6,8 +6,11 @@ services:
       - "8080:8080"
       - "5005:5005"
       - "19071:19071"
+      - "1099:1099"
     volumes:
       - "$PWD:/vespa-sample-apps"
     container_name: vespa
+    stop_signal: SIGKILL
+    stop_grace_period: "0s"
     privileged: true
     hostname: vespa-container
